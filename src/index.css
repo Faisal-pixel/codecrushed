@@ -1,0 +1,247 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 20% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 17% 8%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 16% 9.8%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 35 100% 50%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 345 82% 54%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 4.8% 65.1%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 190 87% 62%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 142.1 76.2% 36.3%;
+
+    --radius: 0.75rem;
+  }
+
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 240 10% 3.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+
+    --primary: 35 100% 50%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 345 82% 54%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+
+    --accent: 190 87% 62%;
+    --accent-foreground: 240 5.9% 10%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 142.1 76.2% 36.3%;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-codecrushed-dark text-codecrushed-light font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28;
+  }
+  
+  .glass-card {
+    @apply bg-codecrushed-dark/80 backdrop-blur-lg border border-codecrushed-blue/20 rounded-lg shadow-xl;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold mb-8 text-codecrushed-light relative inline-block;
+  }
+  
+  .section-title::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-1/2 h-1 bg-codecrushed-orange rounded-full;
+  }
+  
+  .typewriter {
+    @apply overflow-hidden whitespace-nowrap border-r-4 border-codecrushed-orange animate-type-writer;
+  }
+  
+  .timeline-marker {
+    @apply w-16 h-16 rounded-full bg-codecrushed-darker border-2 border-codecrushed-orange flex items-center justify-center text-codecrushed-blue font-mono font-bold text-xl relative z-10;
+  }
+  
+  .timeline-line {
+    @apply absolute top-0 bottom-0 left-8 w-0.5 bg-gradient-to-b from-codecrushed-orange to-codecrushed-blue;
+  }
+  
+  .tech-card {
+    @apply p-6 glass-card transition-all duration-300 hover:scale-105 hover:shadow-[0_0_15px_rgba(76,201,240,0.4)];
+  }
+  
+  .project-card {
+    @apply glass-card overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(76,201,240,0.4)];
+  }
+  
+  .tech-tag {
+    @apply text-xs px-2 py-1 rounded-full bg-codecrushed-blue/20 text-codecrushed-blue mr-2;
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-codecrushed-darker;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-codecrushed-blue/30 rounded-full;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-codecrushed-blue/60;
+}
+
+.logo-text {
+  fill: none;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: logo-dash 3s ease-in-out forwards;
+}
+
+@keyframes logo-dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Animations for the logo */
+@keyframes reveal-rect {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-subtle {
+  0% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes reveal-text {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+    filter: blur(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+.animate-reveal-rect {
+  animation: reveal-rect 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+.animate-reveal-text {
+  animation: reveal-text 1s ease-out forwards;
+  animation-delay: 0.8s;
+  opacity: 0;
+}
+
+.filter.drop-shadow-glow {
+  filter: drop-shadow(0px 0px 10px rgba(255, 137, 6, 0.5));
+}

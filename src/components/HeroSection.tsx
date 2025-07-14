@@ -221,7 +221,7 @@ const HeroSection: React.FC = () => {
                   variant="outline"
                   className="border-codecrushed-blue text-codecrushed-blue hover:bg-codecrushed-blue/10 w-full sm:w-auto"
                 >
-                  Hire Me <Download className="ml-2 h-4 w-4" />
+                  Download My CV <Download className="ml-2 h-4 w-4" />
                 </Button>
               </a>
             </div>
